@@ -9,12 +9,18 @@ android {
 
     defaultConfig {
         applicationId = "com.action.myandroidweek2"
-        minSdk = 24
+        minSdk = 25
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // add compose build feature
+
+    buildFeatures {
+        compose = true // Enable Jetpack Compose
     }
 
     buildTypes {
@@ -26,6 +32,12 @@ android {
             )
         }
     }
+
+    // add compose compiler version
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.14" // Use a version compatible with Kotlin 1.9.24
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -38,14 +50,22 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+//    implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
-    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // compose and material ui dependencies
+    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.compose.ui:ui:1.6.0")
+    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+
+    // Preview and tooling
+    implementation("androidx.compose.ui:ui-tooling-preview:1.6.0")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.6.0")
+
 }
-
-
