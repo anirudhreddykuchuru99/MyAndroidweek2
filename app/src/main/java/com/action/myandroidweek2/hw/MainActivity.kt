@@ -1,15 +1,19 @@
-package com.action.myandroidweek2
+package com.action.myandroidweek2.hw
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.action.myandroidweek2.hw.MyApp
+import androidx.activity.viewModels
+import com.action.myandroidweek2.hw.ui.screens.ProductScreen
+import com.action.myandroidweek2.viewmodel.ProductViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ComponentActivity() {
+    private val viewModel: ProductViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApp()
+            ProductScreen(viewModel)
         }
     }
 }

@@ -50,22 +50,30 @@ android {
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-//    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 
-    // compose and material ui dependencies
-    implementation("androidx.activity:activity-compose:1.8.2")
+    // Compose UI
     implementation("androidx.compose.ui:ui:1.6.0")
-    implementation("androidx.compose.material3:material3:1.2.0")
-    implementation("androidx.navigation:navigation-compose:2.7.5")
-
-    // Preview and tooling
+    implementation("androidx.compose.material3:material3:1.1.2")
     implementation("androidx.compose.ui:ui-tooling-preview:1.6.0")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.6.0")
 
+    // Lifecycle - ViewModel & LiveData
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
+
+    // Compose Activity (Needed for setContent in ComponentActivity)
+    implementation("androidx.activity:activity-compose:1.8.2")
+
+    // Coil for Image Loading
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Coroutine & StateFlow (for ViewModel)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }
